@@ -4,7 +4,4 @@
  */
 (function( $ ) {
 	"use strict";
-
-	
-	
 })( jQuery );
