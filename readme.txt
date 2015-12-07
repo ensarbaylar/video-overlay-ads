@@ -1,4 +1,4 @@
-=== Wordpress Video Overlay Ads ===
+=== WP Video Overlay Ads ===
 Contributors: ensar
 Tags: video overlay ad, youtube overlay, video overlay
 Requires at least: 3.0
