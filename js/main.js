@@ -58,7 +58,7 @@
 				if ( ytVidId( scriptTag.src ) && processedScripts.indexOf(scriptTag) < 0) {
 					// This is a youtube embed, lets wrap it with a overlay
 					$(scriptTag).wrap( "<div class='video-overlay-wrapper'></div>" );
-					jQuery('.video-overlay-wrapper').append('<div class="video-overlay-front"></div>');
+					jQuery('.video-overlay-wrapper').append('<div class="video-overlay-front">'+VideoOverlayAds.overlay_inner_html+'</div>');
 
 				}
 			}

@@ -1,8 +1,7 @@
 .video-overlay-wrapper{
-	padding: 10px;
 	display: inline-block;
 	position: relative;
-	background: #fc0;
+	overflow: hidden;
 }
 .video-overlay-front{
 	display: block;
