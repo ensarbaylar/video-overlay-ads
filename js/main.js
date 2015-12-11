@@ -49,6 +49,7 @@
 		$( document ).ready(function() {
 
 			var scriptTags = document.getElementsByTagName('iframe');
+
 			for(var i = 0; i < scriptTags.length; i++) {
 				
 				var scriptTag = scriptTags[i];
@@ -56,7 +57,9 @@
 				// src matches the url of this request, and not processed it yet.
 				if ( ytVidId( scriptTag.src ) && processedScripts.indexOf(scriptTag) < 0) {
 					// This is a youtube embed, lets wrap it with a overlay
-					
+					$(scriptTag).wrap( "<div class='video-overlay-wrapper'></div>" );
+					jQuery('.video-overlay-wrapper').append('<div class="video-overlay-front"></div>');
+
 				}
 			}
 
