@@ -4,33 +4,6 @@
  */
 (function( $ ) {
 	"use strict";
-
-	// add array index of for old browsers (IE<9)
-	if (!Array.prototype.indexOf) {
-
-		Array.prototype.indexOf = function(obj, start) {
-			var i, j;
-			i = start || 0;
-			j = this.length;
-
-			while (i < j) {
-				if (this[i] === obj) {
-					return i;
-				}
-				i++;
-			}
-			return -1;
-		};
-	}
-
-	// make a $ object to store stuff in
-	if(!$.OpenDataCommunities) { $.OpenDataCommunities = {}; };
-	var OpenDataCommunities = $.OpenDataCommunities;
-	
-	// To keep track of which embeds we have already processed
-	if(!OpenDataCommunities.processedScripts) { OpenDataCommunities.processedScripts = []; };
-	var processedScripts = OpenDataCommunities.processedScripts;
-
 	var jQuery;
 	
 	if (window.jQuery === undefined) {
@@ -54,15 +27,15 @@
 				
 				var scriptTag = scriptTags[i];
 				
-				// src matches the url of this request, and not processed it yet.
-				if ( ytVidId( scriptTag.src ) && processedScripts.indexOf(scriptTag) < 0) {
+				if ( ytVidId( scriptTag.src ) ) {
+
 					// This is a youtube embed, lets wrap it with a overlay
 					jQuery(scriptTag).wrap( "<div class='video-overlay-wrapper'></div>" );
 
 					var videoOverlayInnerContent = '<div class="video-overlay-front">';
 
 					if( VideoOverlayAds.overlay_close_button == 1 || VideoOverlayAds.overlay_close_button == 'on' )
-						videoOverlayInnerContent += '<a href="#" class="video-overlay-dismiss">&times;</a>';
+						videoOverlayInnerContent += '<a href="#" id="video-overlay-dismiss-btn" class="video-overlay-dismiss">&times;</a>';
 
 					videoOverlayInnerContent += '<div class="video-overlay-content-holder">';
 
@@ -75,7 +48,7 @@
 
 
 
-			jQuery( ".video-overlay-dismiss" ).on( "click", function(e) {
+			jQuery( "#video-overlay-dismiss-btn" ).on( "click", function(e) {
 				
 				e.preventDefault();
 				if( jQuery(this).parent().hasClass('video-overlay-front') ){
