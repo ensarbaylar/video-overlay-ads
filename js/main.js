@@ -46,7 +46,7 @@
 	// jQuery load callback
 	function jQueryLoaded(){
 
-		$( document ).ready(function() {
+		jQuery( document ).ready(function() {
 
 			var scriptTags = document.getElementsByTagName('iframe');
 
@@ -57,11 +57,33 @@
 				// src matches the url of this request, and not processed it yet.
 				if ( ytVidId( scriptTag.src ) && processedScripts.indexOf(scriptTag) < 0) {
 					// This is a youtube embed, lets wrap it with a overlay
-					$(scriptTag).wrap( "<div class='video-overlay-wrapper'></div>" );
-					jQuery('.video-overlay-wrapper').append('<div class="video-overlay-front">'+VideoOverlayAds.overlay_inner_html+'</div>');
+					jQuery(scriptTag).wrap( "<div class='video-overlay-wrapper'></div>" );
+
+					var videoOverlayInnerContent = '<div class="video-overlay-front">';
+
+					if( VideoOverlayAds.overlay_close_button == 1 || VideoOverlayAds.overlay_close_button == 'on' )
+						videoOverlayInnerContent += '<a href="#" class="video-overlay-dismiss">&times;</a>';
+
+					videoOverlayInnerContent += '<div class="video-overlay-content-holder">';
+
+					videoOverlayInnerContent += VideoOverlayAds.overlay_inner_html + '</div></div>';					
+
+					jQuery('.video-overlay-wrapper').append(videoOverlayInnerContent);
 
 				}
 			}
+
+
+
+			$( ".video-overlay-dismiss" ).on( "click", function(e) {
+				
+				e.preventDefault();
+				if( jQuery(this).parent().hasClass('video-overlay-front') ){
+					jQuery(this).parent().remove();
+				}else if( jQuery(this).parent().parent().hasClass('video-overlay-front') ){
+					jQuery(this).parent().parent().remove();
+				}
+			});
 
 		});
 	}

@@ -14,7 +14,7 @@ function video_overlay_script() {
 	wp_enqueue_style( 'video-overlay-main-css', plugin_dir_url( __FILE__ ) .  '/css/main.css' );
 	wp_enqueue_script( 'video_overlay_localized', plugin_dir_url( __FILE__ ) .  '/js/main.js', array( 'jquery' ) );
 
-	wp_localize_script('video_overlay_localized', 'VideoOverlayAds', array( 'overlay_inner_html' => get_option('video-overlay-inner-html') ));
+	wp_localize_script('video_overlay_localized', 'VideoOverlayAds', array( 'overlay_inner_html' => get_option('video-overlay-inner-html'), 'overlay_close_button' => get_option('video-overlay-display-close-btn') ));
 
 	// Enqueued script with localized data.
 	wp_enqueue_script( 'video_overlay_localized' );
@@ -41,10 +41,12 @@ function video_overlay_settings_page() {
             <th scope="row">Html input to render inside the overlay ads.</th>
             <td><textarea name="video-overlay-inner-html" rows="8" style="width:100%; display:block"><?php echo get_option('video-overlay-inner-html'); ?></textarea></td>
         </tr>
+        <tr valign="top">
+            <th scope="row">Display close button</th>
+            <td><input type="checkbox" name="video-overlay-display-close-btn" <?php if ( get_option('video-overlay-display-close-btn') == 1 || get_option('video-overlay-display-close-btn') == 'on' ) echo 'checked="checked"'; ?> /></td>
+        </tr>
     </table>
-    
     <?php submit_button(); ?>
-
 </form>
 </div>
 <?php 
@@ -54,6 +56,7 @@ function video_overlay_settings_page() {
 function video_overlay_register_mysettings() {
 	//register our settings
 	register_setting( 'video-overlay-settings', 'video-overlay-inner-html' );
+	register_setting( 'video-overlay-settings', 'video-overlay-display-close-btn' );
 }
 
 ?>
