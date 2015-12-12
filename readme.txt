@@ -15,7 +15,7 @@ This plugin creates an overlay advertisement area over youtube video embeds. You
 == Installation ==
 Upload the plugin
 Go to your admin page Settings > Video Overlay Ads Settings
-Here you can copy and paste any html code that you will display inside the overlay. Also You can select an option to remove the dismiss button, but make sure that you include an html element that has id=\"video-overlay-dismiss-btn\" when clicking this html element the overlay will be removed.
+Here you can copy and paste any html code that you will display inside the overlay. Also You can select an option to remove the dismiss button, but make sure that you include an html element that has class=\"video-overlay-dismiss-btn\" when clicking this html element the overlay will be removed.
 That\'s it. Your videos will be overlaid with the code snipped you just added.
 
 == Frequently Asked Questions ==

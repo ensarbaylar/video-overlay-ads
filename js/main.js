@@ -35,7 +35,7 @@
 					var videoOverlayInnerContent = '<div class="video-overlay-front">';
 
 					if( VideoOverlayAds.overlay_close_button == 1 || VideoOverlayAds.overlay_close_button == 'on' )
-						videoOverlayInnerContent += '<a href="#" id="video-overlay-dismiss-btn" class="video-overlay-dismiss">&times;</a>';
+						videoOverlayInnerContent += '<a href="#" class="video-overlay-dismiss-btn video-overlay-dismiss">&times;</a>';
 
 					videoOverlayInnerContent += '<div class="video-overlay-content-holder">';
 
@@ -48,7 +48,7 @@
 
 
 
-			jQuery( "#video-overlay-dismiss-btn" ).on( "click", function(e) {
+			jQuery( ".video-overlay-dismiss-btn" ).on( "click", function(e) {
 				
 				e.preventDefault();
 				if( jQuery(this).parent().hasClass('video-overlay-front') ){
