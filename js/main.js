@@ -26,7 +26,7 @@
 	// make a $ object to store stuff in
 	if(!$.OpenDataCommunities) { $.OpenDataCommunities = {}; };
 	var OpenDataCommunities = $.OpenDataCommunities;
-
+	
 	// To keep track of which embeds we have already processed
 	if(!OpenDataCommunities.processedScripts) { OpenDataCommunities.processedScripts = []; };
 	var processedScripts = OpenDataCommunities.processedScripts;
@@ -75,7 +75,7 @@
 
 
 
-			$( ".video-overlay-dismiss" ).on( "click", function(e) {
+			jQuery( ".video-overlay-dismiss" ).on( "click", function(e) {
 				
 				e.preventDefault();
 				if( jQuery(this).parent().hasClass('video-overlay-front') ){
