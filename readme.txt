@@ -19,5 +19,16 @@ Here you can copy and paste any html code that you will display inside the overl
 That\'s it. Your videos will be overlaid with the code snipped you just added.
 
 == Frequently Asked Questions ==
-1- Does it only support Youtube video embeds?
+1- What is Video Overlay Ads used for?
+Video Overlay Ads is a Wordpress plugin to show an overlaid content over videos. This overlay can contain HTML rich content so basically you can display anything before videos are played.
+2- Does it only support Youtube video embeds?
 Yes, for now its working only on Youtube videos, stay tuned for other video channels.
+
+== Screenshots ==
+1. Display an Html overlay on top of your videos.
+2. You can configure and add any html code on your videos.
+
+== Changelog ==
+Version 1.0
+
+ * First public release

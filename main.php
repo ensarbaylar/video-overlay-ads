@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: WP Video Overlay Ads
-Version: 1.0.0
+Version: 1.0
 Plugin URI: http://salinus.com/
 Author: Salinus
 Author URI: http://salinus.com/
