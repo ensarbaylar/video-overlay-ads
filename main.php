@@ -32,22 +32,71 @@ function video_overlay_create_menu() {
 function video_overlay_settings_page() {
 ?>
 <div class="wrap">
-<h2>Video Overlay Ads Settings</h2>
-<form method="post" action="options.php">
-    <?php settings_fields( 'video-overlay-settings' ); ?>
-    <?php settings_fields( 'video-overlay-settings' ); ?>
-    <table class="form-table">
-        <tr valign="top">
-            <th scope="row">Html input to render inside the overlay ads.</th>
-            <td><textarea name="video-overlay-inner-html" rows="8" style="width:100%; display:block"><?php echo get_option('video-overlay-inner-html'); ?></textarea></td>
-        </tr>
-        <tr valign="top">
-            <th scope="row">Display close button</th>
-            <td><input type="checkbox" name="video-overlay-display-close-btn" <?php if ( get_option('video-overlay-display-close-btn') == 1 || get_option('video-overlay-display-close-btn') == 'on' ) echo 'checked="checked"'; ?> /></td>
-        </tr>
-    </table>
-    <?php submit_button(); ?>
-</form>
+    <h2>Video Overlay Ads Settings</h2>
+    <div class="video-overlay-ads-optionform-holder">
+        <form method="post" action="options.php">
+            <?php settings_fields( 'video-overlay-settings' ); ?>
+            <?php settings_fields( 'video-overlay-settings' ); ?>
+            <table class="form-table">
+                <tr valign="top">
+                    <th scope="row">Html input to render inside the overlay ads.</th>
+                    <td><textarea name="video-overlay-inner-html" rows="8" style="width:100%; display:block"><?php echo get_option('video-overlay-inner-html'); ?></textarea></td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">Display close button</th>
+                    <td><input type="checkbox" name="video-overlay-display-close-btn" <?php if ( get_option('video-overlay-display-close-btn') == 1 || get_option('video-overlay-display-close-btn') == 'on' ) echo 'checked="checked"'; ?> /></td>
+                </tr>
+            </table>
+            <?php submit_button(); ?>
+        </form>
+    </div>
+    <div class="video-overlay-ads-righttip-holder">
+        <h2>Need Help?</h2>
+        <p>We are software developers. Loving to develop websites, mobile apps, and mobile games. Do you have a customized inquiry? Please send us an email <a href="mailto:wordpress@salinus.com" target="_blank">wordpress@salinus.com</a>.</p>
+        <h3>Liked our plugin?</h3>
+        <p>You can support us, so we can keep updating and adding new features. We are always thankful for your generous tips.</p>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="payment@salinus.com">
+            <input type="hidden" name="lc" value="US">
+            <input type="hidden" name="item_name" value="Video Overlay Ads Tips">
+            <input type="hidden" name="button_subtype" value="services">
+            <input type="hidden" name="no_note" value="0">
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="hidden" name="bn" value="PP-BuyNowBF:btn_paynow_LG.gif:NonHostedGuest">
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+    </div>
+<style>
+.video-overlay-ads-optionform-holder{
+    display: block;
+    float: left;
+    width: 70%;
+    margin: 0;
+    padding: 10px;
+}
+.video-overlay-ads-righttip-holder{
+    display: block;
+    float: left;
+    width: 25%;
+    background: #dedede;
+    border: 1px solid #fff;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0;
+    margin-top: 30px;
+}
+@media screen and (max-width: 1080px) {
+    .video-overlay-ads-optionform-holder{
+        width: 100%;
+    }
+    .video-overlay-ads-righttip-holder{
+        width: 100%;
+    }
+}
+</style>
 </div>
 <?php 
 }
