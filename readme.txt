@@ -1,5 +1,5 @@
 === Wordpress Video Overlay Ads ===
-Contributors: ensar
+Contributors: ensar, salinus.com
 Tags: video overlay ad, youtube overlay, video overlay
 Requires at least: 3.1
 Tested up to: 4.4
