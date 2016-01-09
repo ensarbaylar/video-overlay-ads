@@ -30,7 +30,8 @@ Yes, for now its working only on Youtube and Vimeo videos, stay tuned for other 
 
 == Changelog ==
 Version 1.1
-* Added Vimeo channel
+
+ * Added Vimeo channel
 
 Version 1.0
 
