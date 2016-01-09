@@ -30,20 +30,13 @@
 				if ( ytVidId( scriptTag.src ) ) {
 
 					// This is a youtube embed, lets wrap it with a overlay
-					jQuery(scriptTag).wrap( "<div class='video-overlay-wrapper'></div>" );
+					addVideoOverlayAds(scriptTag);
 
-					var videoOverlayInnerContent = '<div class="video-overlay-front">';
-
-					if( VideoOverlayAds.overlay_close_button == 1 || VideoOverlayAds.overlay_close_button == 'on' )
-						videoOverlayInnerContent += '<a href="#" class="video-overlay-dismiss-btn video-overlay-dismiss">&times;</a>';
-
-					videoOverlayInnerContent += '<div class="video-overlay-content-holder">';
-
-					videoOverlayInnerContent += VideoOverlayAds.overlay_inner_html + '</div></div>';					
-
-					jQuery('.video-overlay-wrapper').append(videoOverlayInnerContent);
-
+				}else if( scriptTag.src.match(/https?:\/\/(?:www\.|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|video\/|)(\d+)(?:$|\/|\?)/) ){
+					// This is a Vimeo embed, lets wrap it with a overlay
+					addVideoOverlayAds(scriptTag);
 				}
+
 			}
 
 
@@ -59,6 +52,21 @@
 			});
 
 		});
+	}
+
+	function addVideoOverlayAds(scriptTag){
+		jQuery(scriptTag).wrap( "<div class='video-overlay-wrapper'></div>" );
+
+		var videoOverlayInnerContent = '<div class="video-overlay-front">';
+
+		if( VideoOverlayAds.overlay_close_button == 1 || VideoOverlayAds.overlay_close_button == 'on' )
+			videoOverlayInnerContent += '<a href="#" class="video-overlay-dismiss-btn video-overlay-dismiss">&times;</a>';
+
+		videoOverlayInnerContent += '<div class="video-overlay-content-holder">';
+
+		videoOverlayInnerContent += VideoOverlayAds.overlay_inner_html + '</div></div>';					
+
+		jQuery('.video-overlay-wrapper').append(videoOverlayInnerContent);
 	}
 
 	function ytVidId( url ) {
